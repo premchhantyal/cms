@@ -31,7 +31,7 @@ class BackAsset extends AssetBundle
         'js/jquery-2.2.3.min.js',
         'js/bootstrap.min.js',
         'js/jquery.slimscroll.min.js',
-        'js/fastclick/fastclick.js'
+        'js/fastclick/fastclick.js',
 
     ];
     public $depends = [

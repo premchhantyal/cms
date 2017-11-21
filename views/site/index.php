@@ -1,8 +1,17 @@
-<?php
+
+<?php 
+use yii\helpers\Html;
+
+$this->title = 'Home';
+$this->params['breadcrumbs'][] = $this->title;
+echo '<h1>'.$content.'<h1>'
+ ?>
+
+<!-- <?php
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+//$this->title = 'My Yii Application';
 ?>
 <div class="site-index">
 
@@ -51,3 +60,4 @@ $this->title = 'My Yii Application';
 
     </div>
 </div>
+ -->

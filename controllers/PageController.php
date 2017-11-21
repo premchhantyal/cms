@@ -8,12 +8,14 @@ use app\models\PageSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * PageController implements the CRUD actions for Page model.
  */
 class PageController extends Controller
 {
+    public $layout = 'admin';
     /**
      * @inheritdoc
      */
@@ -66,7 +68,8 @@ class PageController extends Controller
         $model = new Page();
 
         if ($model->load(Yii::$app->request->post()) ) {
-        
+            $name = UploadedFile::getInstance($model,'file');
+            var_dump($model);exit;
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

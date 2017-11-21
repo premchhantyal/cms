@@ -18,5 +18,5 @@ $this->params['breadcrumbs'][] = $this->title;
 </div> -->
 
 <?php 
-echo '<h1>'.$content.'<h1>'
+echo '<h1>'.$content->title.'<h1>'
  ?>

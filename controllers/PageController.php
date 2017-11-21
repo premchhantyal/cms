@@ -74,7 +74,7 @@ class PageController extends Controller
            // var_dump($model->image);exit;
            // $file->saveAs('uploads/' . $file->baseName . '.' . $file->extension);
             //move_uploaded_file($file, 'uploads/'.$model->image);
-            $uploadDir = Yii::getAlias('@app/uploads/');
+            $uploadDir = Yii::getAlias('@app/web/img');
             if ( $model->validate()) {                
                 $file->saveAs($uploadDir. $file->baseName . '.' . $file->extension);
             }

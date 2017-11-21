@@ -68,8 +68,16 @@ class PageController extends Controller
         $model = new Page();
 
         if ($model->load(Yii::$app->request->post()) ) {
-            $name = UploadedFile::getInstance($model,'file');
-            var_dump($model);exit;
+            $file = UploadedFile::getInstance($model,'image');
+            //var_dump($file);exit;
+            $model->image = $file->baseName . '.' . $file->extension;
+           // var_dump($model->image);exit;
+           // $file->saveAs('uploads/' . $file->baseName . '.' . $file->extension);
+            //move_uploaded_file($file, 'uploads/'.$model->image);
+            $uploadDir = Yii::getAlias('@app/uploads/');
+            if ( $model->validate()) {                
+                $file->saveAs($uploadDir. $file->baseName . '.' . $file->extension);
+            }
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

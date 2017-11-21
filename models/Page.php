@@ -9,7 +9,10 @@ use Yii;
  *
  * @property integer $id
  * @property string $title
+ * @property string $url
  * @property string $content_text
+ * @property string $summary
+ * @property string $image
  */
 class Page extends \yii\db\ActiveRecord
 {
@@ -27,8 +30,8 @@ class Page extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['content_text'], 'string'],
-            [['title'], 'string', 'max' => 255],
+            [['content_text', 'summary'], 'string'],
+            [['title', 'url', 'image'], 'string', 'max' => 255],
         ];
     }
 
@@ -40,7 +43,10 @@ class Page extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
+            'url' => 'Url',
             'content_text' => 'Content Text',
+            'summary' => 'Summary',
+            'image' => 'Image',
         ];
     }
 }

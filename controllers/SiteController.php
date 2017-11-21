@@ -9,6 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\helpers\Url;
+use app\models\Page;
 
 class SiteController extends Controller
 {
@@ -61,7 +63,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        //$user = User::find()->where(['name' => 'CeBe'])->one();
+        $page = Page::find()->where(['id'=>'1'])->one();
+        //var_dump($page->content_text);exit;
+        return $this->render('index',["content"=>$page]);
     }
 
     /**
@@ -77,7 +82,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            $this->redirect(Url::toRoute('page/index'));
         }
         return $this->render('login', [
             'model' => $model,
@@ -103,15 +108,20 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
+        // $model = new ContactForm();
+        // if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+        //     Yii::$app->session->setFlash('contactFormSubmitted');
 
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
+        //     return $this->refresh();
+        // }
+        // return $this->render('contact', [
+        //     'model' => $model,
+        // ]);
+
+        $page = Page::find()->where(['id'=>'3'])->one();
+        //var_dump($page->content_text);exit;
+        return $this->render('about',["content"=>$page]);
+
     }
 
     /**
@@ -121,6 +131,10 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+         //$user = User::find()->where(['name' => 'CeBe'])->one();
+        $page = Page::find()->where(['id'=>'2'])->one();
+        //var_dump($page->content_text);exit;
+        return $this->render('about',["content"=>$page]);
+        
     }
 }

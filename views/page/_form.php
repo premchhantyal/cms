@@ -14,7 +14,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'content_text')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'summary')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

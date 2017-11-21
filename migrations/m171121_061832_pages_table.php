@@ -17,12 +17,16 @@ class m171121_061832_pages_table extends Migration
             [
                 "id"=> Schema::TYPE_PK,
                 "title"=>Schema::TYPE_STRING,
-                "content_text"=>Schema::TYPE_TEXT
+                "url"=>Schema::TYPE_STRING,
+                "content_text"=>Schema::TYPE_TEXT,
+                "summary"=>Schema::TYPE_TEXT,
+                "image"=>Schema::TYPE_STRING
             ]);
-        // $this->batchInsert("page",[
-        //     [1,"Home","This is home page"],
-        //     [2,"About us","This is about us page"]
-        // ]);
+        $this->batchInsert("page",["title","url","content_text","summary"],[
+            ["Home","home","This is home page",""],
+            ["About us","about","This is about us page",""],
+            ["contact us","contact","This is contact us page",""]
+        ]);
     }
 
     /**

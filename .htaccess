@@ -1,0 +1,11 @@
+# prevent directory listings
+Options -Indexes
+IndexIgnore /
+
+# follow symbolic links
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options FollowSymlinks
+Options SymLinksIfOwnerMatch
+RewriteEngine on
+
+RewriteRule ^(.+)?$ web/$1

@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
    </div>
    <div class="col-lg-4">
-    <img src="<?= $content->image;?>" alt="alt image">
+    <img src="img/<?= $content->image?>" style="height: 300px; width: 300px;">
    </div>
   </div>
 

@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\filters\AccessControl;
 
 /**
  * PageController implements the CRUD actions for Page model.
@@ -22,6 +23,17 @@ class PageController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                //'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['logout','index','create','update','view','delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -74,7 +86,7 @@ class PageController extends Controller
            // var_dump($model->image);exit;
            // $file->saveAs('uploads/' . $file->baseName . '.' . $file->extension);
             //move_uploaded_file($file, 'uploads/'.$model->image);
-            $uploadDir = Yii::getAlias('@app/web/img');
+            $uploadDir = Yii::getAlias('@app/web/img/');
             if ( $model->validate()) {                
                 $file->saveAs($uploadDir. $file->baseName . '.' . $file->extension);
             }

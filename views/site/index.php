@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
   <div class="row">
    <div class="col-lg-12">
     <h2>summary</h2>
-    <p><?= $content->content_text;?></p>
+    <p><?= $content->summary;?></p>
    </div>
   </div>
   <hr>

@@ -28,7 +28,7 @@ BackAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="hold-transition skin-purple sidebar-mini">
-    <div class="wrapper">
+
         <header class="main-header">
             <!-- Logo -->
             <a href="index2.html" class="logo">
@@ -460,7 +460,7 @@ BackAsset::register($this);
         <!-- Add the sidebar's background. This div must be placed
              immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
-    </div>
+
 </div>
 
 <?php $this->endBody() ?>
